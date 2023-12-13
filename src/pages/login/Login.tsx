@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+// import { Link } from "react-router-dom";
 import './Login.css';
-import NetflixLogo from '../components/NetflixLogo';
+import NetflixLogo from '../../components/NetflixLogo';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleLogin = () => {
-        console.log('Loggin in with: ', { email, password });
+        console.log('Login in with: ', { email, password });
     };
 
     return (
@@ -25,10 +26,13 @@ const Login = () => {
                         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     </label>
                 </div>
-                <button type="button" onClick={handleLogin}>
+                <div className='forgor'>
+                    <a href="/resetPassword">Forgot your password?</a>
+                </div>
+                <button type="submit" onClick={handleLogin}>
                     Login
                 </button>
-                <i><u>Forgot your password?</u></i>
+                <p>Don't have an account? <a href="/register">Sign up</a></p>
             </form>
         </div>
     )
