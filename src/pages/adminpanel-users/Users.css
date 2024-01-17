@@ -1,9 +1,7 @@
 body, html {
     margin: 0;
     padding: 0;
-    /* height: 100%; */
     background-color: #E4E4E4;
-    /* min-height: 100%; */
 }
 
 body {
@@ -14,8 +12,6 @@ body {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     width: 100vw;
-    
-    
 }
 
 .navBar {
@@ -51,5 +47,28 @@ body {
 
 .header {
     grid-column: 2/6;
+    grid-row: 1;
     display: flex;
+    flex-direction: column; 
+    margin-left: 20px;
+}
+
+.userList {
+    grid-column: 2/6;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    margin-top: 20px;
+    margin-left: 20px; 
+    padding-top: 75px;
+    padding-left: 25px;
+}
+
+.user {
+    margin-bottom: 5px; 
+}
+
+.userList p {
+    margin: 5px;
 }
