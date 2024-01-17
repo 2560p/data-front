@@ -13,7 +13,7 @@ function App() {
           <Route path={"/"} element={<Login />} />
           <Route path={"/register"} element={<SignUp />} />
           <Route path={"/resetPassword"} element={<ResetPassword />} />
-          <Route path={"/"} element={<MediaStatistics />} />
+          <Route path={"/mediaStatistics"} element={<MediaStatistics />} />
         </Routes>
       </div>
     </Router>
