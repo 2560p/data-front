@@ -31,7 +31,7 @@ const MediaStatisticsPage = () => {
           <NetflixLogo />
           <h2>Admin Panel</h2>
           <div className="navButtons">
-              <button>Users</button>
+              <button>Profiles</button>
               <button>Media Statistics</button>
               <button>Docs</button>
           </div>
