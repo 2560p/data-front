@@ -15,6 +15,7 @@ import NetflixLogo from "../../components/NetflixLogo";
 
 const Users = () => {
     return (
+      
         <div className="gridBody">
             <div className="navBar">
                 <NetflixLogo />
@@ -31,6 +32,7 @@ const Users = () => {
                 </header>
             </div>
         </div>
+      
     );
 }
 
