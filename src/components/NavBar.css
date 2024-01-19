@@ -11,20 +11,17 @@
   display: flex;
   flex-direction: column;
   margin-top: 20px;
-}
-
-.navButtons > button {
   background-color: #B1060F;
   color: white;
   padding: 12px;
-  margin: 6px 0;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   text-align: center;
   width: 200px;
+
 }
 
-.navButtons > button:hover {
+.navButtons:hover {
   background-color: #6a060b;
 }
