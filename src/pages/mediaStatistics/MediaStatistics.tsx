@@ -1,6 +1,6 @@
 import React from 'react';
 import './MediaStatistics.css';
-import NetflixLogo from "../../components/NetflixLogo";
+import NavBar from "../../components/NavBar";
 
 
 const MediaStatisticsPage = () => {
@@ -27,16 +27,7 @@ const MediaStatisticsPage = () => {
       
 
       <div className="grid-container">
-        <div className="navBar">
-          <NetflixLogo />
-          <h2>Admin Panel</h2>
-          <div className="navButtons">
-              <button>Profiles</button>
-              <button>Media Statistics</button>
-              <button>Docs</button>
-          </div>
-        </div>
-        
+        <NavBar />
         <h1>Media Statistics</h1>
         
         <div className="left-section">
