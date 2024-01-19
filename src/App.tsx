@@ -5,7 +5,7 @@ import Login from './pages/login/Login';
 import SignUp from './pages/register/SignUp';
 import ResetPassword from './pages/resetPass/ResetPassword';
 import Docs from './pages/docs/Docs';
-import MediaStatistics from './pages/mediaStatistics/MediaStatistics'
+import MediaStatistics from './pages/mediaStatistics/MediaStatistics';
 
 
 function App() {

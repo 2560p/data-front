@@ -12,7 +12,7 @@ function NavBar() {
         <Link to="/profiles">
           <button  className="navButtons">Profiles</button>
         </Link>
-        <Link to="/media-statistics">
+        <Link to="/mediaStatistics">
           <button  className="navButtons">Media Statistics</button>
         </Link>
         <Link to="/docs">
