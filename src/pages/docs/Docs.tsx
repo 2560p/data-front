@@ -1,21 +1,13 @@
 import React from "react";
 import "./Docs.css";
-import NetflixLogo from "../../components/NetflixLogo";
+import NavBar from "../../components/NavBar";
 
 
 
 const Docs = () => {
     return (
         <div className="gridBody">
-            <div className="navBar">
-                <NetflixLogo />
-                <h2>Admin Panel</h2>
-                <div className="navButtons">
-                    <button>Profiles</button>
-                    <button>Media Statistics</button>
-                    <button>Docs</button>
-                </div>
-            </div>
+            <NavBar />
             <div className="header">
                 <header>
                     <h1>Docs</h1>
