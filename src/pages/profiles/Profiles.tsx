@@ -1,6 +1,6 @@
 import React from "react";
-import "./Users.css";
-import NetflixLogo from "../../components/NetflixLogo";
+import "./Profiles.css";
+import NavBar from "../../components/NavBar";
 
 const users_data = [
     { profile_name: "John", email: "test1@hey.com", status: "BLOCKED", birth_date: "01-02-2003", payment: "card" },
@@ -19,26 +19,17 @@ const Users = () => {
 
     return (
         <div className="gridBody">
-            <div className="navBar">
-                <NetflixLogo />
-                <h2>Admin Panel</h2>
-                <div className="navButtons">
-                    <button>Profiles</button>
-                    <button>Media Statistics</button>
-                    <button>Docs</button>
-                </div>
-            </div>
+            
+            <NavBar />
             <div className="header">
                 <header>
                     <h1>Profiles</h1>
                 </header>
             </div>
-            {/* Display sorted users */}
             <div className="userList">
                 {sortedUsers.map((user, index) => (
                 <div key={index} className="user">
                     <p>Email: {user.email}</p>
-                    {/* Add other user information as needed */}
                 </div>
                 ))}
             </div>
