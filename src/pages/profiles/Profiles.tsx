@@ -1,21 +1,36 @@
-import React from "react";
 import "./Profiles.css";
 import NavBar from "../../components/NavBar";
-
-const users_data = [
-    { profile_name: "John", email: "test1@hey.com", status: "BLOCKED", birth_date: "01-02-2003", payment: "card" },
-    { email: "test2@hey.com", payment: "card" },
-    { email: "test3@hey.com", payment: "card" },
-    { email: "test4@hey.com", payment: "card" },
-    { email: "test5@hey.com", payment: "card" },
-    { email: "test", payment: "card" },
-    { email: "test", payment: "card" },
-    { email: "test", payment: "card" }
-];
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Users = () => {
-  // Sort users by email
-    const sortedUsers = [...users_data].sort((a, b) => (a.email > b.email ? 1 : -1));
+  const [apiData, setApiData] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const getApiData = async () => { 
+      try {
+        const response = await fetch('http://localhost:8080/profiles', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+          },
+        });
+
+        if (response.ok) {
+          setApiData(await response.json());
+        } else {
+          localStorage.removeItem('token');
+          navigate('/');
+        }
+    } catch (error) {
+        console.error('Error checking authentication:', error);
+        localStorage.removeItem('token');
+    }
+  }
+  getApiData()
+  }, []);
+
 
     return (
         <div className="gridBody">
@@ -27,9 +42,9 @@ const Users = () => {
                 </header>
             </div>
             <div className="userList">
-                {sortedUsers.map((user, index) => (
+                {apiData.map((user, index) => (
                 <div key={index} className="user">
-                    <p>Email: {user.email}</p>
+                    <p>Profile name: {user.profile_name}</p>
                 </div>
                 ))}
             </div>

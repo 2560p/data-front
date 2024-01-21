@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-// import { Link } from "react-router-dom";
+import { useState } from 'react';
 import './Login.css';
 import NetflixLogo from '../../components/NetflixLogo';
 
@@ -7,8 +6,34 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleLogin = () => {
-        console.log('Login in with: ', { email, password });
+    const handleLogin = (e: any) => {
+        e.preventDefault();
+
+        // send the auth in json to localhost:8080/auth/admin/login
+        fetch('http://localhost:8080/auth/admin/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, password }),
+        })
+            .then((response) => {
+                if (response.ok) {
+                    // store the token in local storage
+                    response.json().then((data) => {
+                        localStorage.setItem('token', data.token);
+                        window.location.href = '/profiles';
+                    });
+                } else {
+                    // show an error
+                    response.text().then((text) => {
+                        alert(text);
+                    });
+                }
+            })
+            .catch((error) => {
+                console.error('Error: ', error);
+            });
     };
 
     return (

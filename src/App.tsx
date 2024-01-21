@@ -8,7 +8,6 @@ import Docs from './pages/docs/Docs';
 import MediaStatistics from './pages/mediaStatistics/MediaStatistics';
 import Profiles from './pages/profiles/Profiles';
 
-
 function App() {
   return (
     <Router>

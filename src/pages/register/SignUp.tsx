@@ -3,13 +3,37 @@ import './SignUp.css';
 import NetflixLogo from '../../components/NetflixLogo';
 
 const SignUp = () => {
-    const [fname, setFName] = useState('');
-    const [lname, setLName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleLogin = () => {
-        console.log('Login in with: ', { fname, lname, email, password });
+    const handleLogin = (e: any) => {
+        e.preventDefault();
+
+        // send the auth in json to localhost:8080/auth/admin/register
+        fetch('http://localhost:8080/auth/admin/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email: email, password: password, role: 'junior' }),
+        })
+            .then((response) => {
+                if (response.ok) {
+                    // store the token in local storage
+                    response.json().then((data) => {
+                        localStorage.setItem('token', data.token);
+                        window.location.href = '/profiles';
+                    });
+                } else {
+                    // show an error
+                    response.text().then((text) => {
+                        alert(text);
+                    });
+                }
+            })
+            .catch((error) => {
+                console.error('Error: ', error);
+            });
     };
 
     return (
@@ -18,14 +42,6 @@ const SignUp = () => {
             <form className='registerForm'>
                 <h2>Sign Up</h2>
                 <div className='labels'>
-                    <label>
-                        First Name:
-                        <input type="email" value={fname} onChange={(e) => setFName(e.target.value)} />
-                    </label>
-                    <label>
-                        Last Name:
-                        <input type="email" value={lname} onChange={(e) => setLName(e.target.value)} />
-                    </label>
                     <label>
                         Email:
                         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />

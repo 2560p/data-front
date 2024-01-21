@@ -1,7 +1,5 @@
-import React from 'react';
 import './MediaStatistics.css';
 import NavBar from "../../components/NavBar";
-
 
 const MediaStatisticsPage = () => {
   // Replace this with actual API response
