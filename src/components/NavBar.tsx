@@ -12,11 +12,8 @@ function NavBar() {
         <Link to="/profiles">
           <button  className="navButtons">Profiles</button>
         </Link>
-        <Link to="/mediaStatistics">
-          <button  className="navButtons">Media Statistics</button>
-        </Link>
-        <Link to="/docs">
-          <button  className="navButtons">Docs</button>
+        <Link to="/statistics">
+          <button  className="navButtons">Statistics</button>
         </Link>
       </div>
     </div>

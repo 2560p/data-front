@@ -22,6 +22,7 @@ const Login = () => {
                     // store the token in local storage
                     response.json().then((data) => {
                         localStorage.setItem('token', data.token);
+                        localStorage.setItem('refresh_token', data.refresh_token);
                         window.location.href = '/profiles';
                     });
                 } else {
